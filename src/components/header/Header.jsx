@@ -16,7 +16,35 @@ const Header = () => {
   const [query, setQuery] = useState(""); //for search
   const [showSearch, setShowSearch] = useState(""); //search bar opening/closing with this
   const navigate = useNavigate(); //use navigate to navigate to those pages
-  const location = useLocation();
+  const location = useLocation();//Basically it shows current location of page i.e home,movies,login etc
+
+useEffect(()=>{
+  window.scrollTo(0,0);
+},[location])
+
+
+  const controlNavbar = () =>{
+    console.log(window.scrollY);
+   if(window.scrollY > 200){
+      if(window.scrollY > lastScrollY && !mobileMenu){
+        setShow("hide")
+      }
+      else{
+        setShow("show")
+      }  
+    }else{
+    setShow("top")
+   }
+   setLastScrollY(window.scrollY);
+  }
+
+  useEffect(()=>{// using this to make changes while scrolling ...effects and stuff
+    window.addEventListener("scroll",controlNavbar)
+    return ()=>{
+       window.removeEventListener("scroll", controlNavbar);
+    }
+  },[lastScrollY])
+
 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
@@ -39,14 +67,13 @@ const Header = () => {
   };
 
   const navigationHandler = (type) => {
-    if(type === "movie")
-    {
-      navigate("/explore/movie")
-    }else{
+    if (type === "movie") {
+      navigate("/explore/movie");
+    } else {
       navigate("/explore/tv");
     }
-    setMobileMenu(false)
-  }
+    setMobileMenu(false);
+  };
 
   return (
     <>
