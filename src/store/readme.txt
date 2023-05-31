@@ -1,0 +1,1 @@
+this folder has all the redux store related files for this project
