@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchDataFromApi } from "./utils/api";
 import { BrowserRouter, Route, Routes } from "react-router-dom"; //Makes ease to swicth btw pages or  ROUTES
-import { getApiConfiguration } from "./store/homeSlice"; //getApiConfiguration is an action
+import { getApiConfiguration, getGenres } from "./store/homeSlice"; //getApiConfiguration is an action
 import { useDispatch, useSelector } from "react-redux";
 
 import Header from "./components/header/Header";
@@ -33,6 +33,23 @@ function App() {
       dispatch(getApiConfiguration(url)); //passing res in action to set values i.e Store
     });
   };
+
+  const genresCall = async () =>{
+    let promises = [];
+    let endPoints = ["tv","movie"];
+    let allGenres = {};   // all values will be stored in this obj
+
+    endPoints.forEach((url)=>{
+      promises.push(fetchDataFromApi(`/genre/${url}/list`));
+    })
+
+    const data = await Promise.all(promises); // using Promises.all() cuz  it will wait it both responses are recieved (here tv and movie) and we'll get responses in an array togther .......i.e not seperate response for movie and tv
+    // console.log(data);
+    data.map(({genres})=>{
+        return genres.map((item)=>(allGenres[item.id]=item))  // id will be "key" and response will be "value"
+    })
+    dispatch(getGenres(allgenres))
+  }
 
   return (
     // ENTIRE App will be wrapped inside  BrowserRouter

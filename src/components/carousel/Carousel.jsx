@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import {
-  BsFillArrowLeftCircleFill,
+  BsFillArrowLeftCircleFill,     // these are arrow icons
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -26,8 +26,8 @@ const Carousel = ({ data, loading, endpoint, title }) => {
 
     const scrollAmount =
       dir === "left"
-        ? container.scrollLeft - (container.offsetWidth + 20)
-        : container.scrollLeft + (container.offsetWidth + 20);
+        ? container.scrollLeft - (container.offsetWidth + 18)
+        : container.scrollLeft + (container.offsetWidth + 18);
 
     container.scrollTo({
       left: scrollAmount,
@@ -35,7 +35,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
     });
   };
 
-  const skItem = () => {
+  const skItem = () => {// this function is works / visible while loading/fetching data
     return (
       <div className="skeletonItem">
         <div className="posterBlock skeleton"></div>
@@ -76,7 +76,8 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                   <div className="posterBlock">
                     <Img src={posterUrl} />
                     <CircleRating rating={item.vote_average.toFixed(1)} />
-                    <Genres data={item.genre_ids.slice(0, 2)} />
+                    {/* .vote_average got this from api and  toFixed(1) this return only one decimal point value*/}
+                    <Genres data={item.genre_ids.slice(0, 3)} />
                   </div>
                   <div className="textBlock">
                     <span className="title">{item.title || item.name}</span>
