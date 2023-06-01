@@ -80,8 +80,11 @@ useEffect(()=>{
       {/* adding header styling conditionally */}
       <header className={`header ${mobileMenu ? "mobileView " : " "} ${show}`}>
         <ContentWrapper>
-          <div className="log">
-            <img src={logo} alt="" />
+          <div className="logo">
+            <a href="">
+              <img src={logo} alt="" />
+            </a>
+            <div id="Enow">ENTERTAINMENT NOW</div>
           </div>
           <ul className="menuItems">
             {/* onclick navigate to desired route/page */}
