@@ -21,6 +21,7 @@ const DetailsBanner = ({ video, crew }) => {
   const { url } = useSelector((state) => state.home); //it retrieves the value of url from the Redux store and assigns it to a local variable for use in the component.
 
   const __genres = data?.genres?.map((gen) => gen.id);
+
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
@@ -60,10 +61,42 @@ const DetailsBanner = ({ video, crew }) => {
 
                     <div className="row">
                       <CircleRating rating={data.vote_average.toFixed(2)} />
-                      <div className="playbtn" >
+                      <div className="playbtn">
                         <PlayIcon />
                         <span className="text">Watch Trailer</span>
                       </div>
+                    </div>
+
+                    <div className="overview">
+                      <div className="heading">Overview</div>
+                      <div className="description">{data.overview}</div>
+                    </div>
+
+                    <div className="info">
+                      {data.status && (
+                        <div className="infoItem">
+                          <span className="text bold">Status: </span>
+                          <span className="text">{data.status}</span>
+                        </div>
+                      )}
+
+                      {data.release_date && (
+                        <div className="infoItem">
+                          <span className="text bold">Release Date: </span>
+                          <span className="text">
+                            {dayjs(data.release_date).format("MMM D, YYYY")}
+                          </span>
+                        </div>
+                      )}
+
+                      {data.runtime && (
+                        <div className="infoItem">
+                          <span className="text bold">RunTime: </span>
+                          <span className="text">
+                            {toHoursAndMinutes(data.runtime)}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
