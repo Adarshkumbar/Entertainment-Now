@@ -12,6 +12,7 @@ const Genres = ({ data }) => {
         if (!genres[g]?.name) return;   // return if name not present
         return (
           <div key={g} className="genre">
+            {console.log("gg",genres)}
             {genres[g]?.name}
           </div>
         );

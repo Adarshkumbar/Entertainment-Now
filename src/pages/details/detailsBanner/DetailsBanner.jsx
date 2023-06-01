@@ -12,13 +12,15 @@ import Genres from "../../../components/genres/Genres";
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
 import CircleRating from "../../../components/cicleRating/CircleRating";
+import { PlayIcon } from "../Playbtn";
 
 const DetailsBanner = ({ video, crew }) => {
   const { mediaType, id } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
-  const { url } = useSelector((state) => state.home);
+  const { url } = useSelector((state) => state.home); //it retrieves the value of url from the Redux store and assigns it to a local variable for use in the component.
 
+  const __genres = data?.genres?.map((gen) => gen.id);
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
@@ -44,20 +46,24 @@ const DetailsBanner = ({ video, crew }) => {
                         src={url.backdrop + data.poster_path}
                       />
                     ) : (
-                      <Img
-                        className="posterImg"
-                        src={PosterFallback}
-                      />
+                      <Img className="posterImg" src={PosterFallback} />
                     )}
                   </div>
                   <div className="right">
                     <div className="title">
-                        {`${data.name || data.title }(
+                      {`${data.name || data.title}(
                             ${dayjs(data?.release_date).format("YYYY")}
                         )`}
                     </div>
-                    <div className="subtitle">
-                            {data.tagline}
+                    <div className="subtitle">{data.tagline}</div>
+                    <Genres data={__genres} />
+
+                    <div className="row">
+                      <CircleRating rating={data.vote_average.toFixed(2)} />
+                      <div className="playbtn" >
+                        <PlayIcon />
+                        <span className="text">Watch Trailer</span>
+                      </div>
                     </div>
                   </div>
                 </div>
