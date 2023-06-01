@@ -22,6 +22,21 @@ const DetailsBanner = ({ video, crew }) => {
 
   const __genres = data?.genres?.map((gen) => gen.id);
 
+  // creating Array of directors and writers
+  const director = crew?.filter((f) => f.job === "Directing" || f.job === "Director"
+  );
+  const writer = crew?.filter(
+    (f) =>
+      f.job === "ScreenPlay" ||
+      f.job === "Story" ||
+      f.job === "Writer" ||
+      f.job === "Writing"
+  );
+
+  const productionCompanies =data?.production_companies;
+  console.log(productionCompanies);
+    // const productionCompany = data.
+
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
@@ -97,7 +112,66 @@ const DetailsBanner = ({ video, crew }) => {
                           </span>
                         </div>
                       )}
+
+                      {/* To get director and caste we call api for credits */}
                     </div>
+
+                    {director?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Director: </span>
+                        <span className="text">
+                          {director?.map((d, i) => (
+                            <span key={i}>
+                              {d.name}
+                              {director?.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
+
+                    {writer?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Writer: </span>
+                        <span className="text">
+                          {writer?.map((d, i) => (
+                            <span key={i}>
+                              {d.name}
+                              {writer?.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
+
+                    {data?.created_by?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Creator: </span>
+                        <span className="text">
+                          {created_by?.map((d, i) => (
+                            <span key={i}>
+                              {d.name}
+                              {created_by?.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
+
+                    {productionCompanies?.length > 0 && (
+                      <div className="info">
+                        <span className="text bold">Production Company: </span>
+                        <span className="text">
+                          {productionCompanies?.map((d, i) => (
+                            <span key={i}>
+                              {d.name}
+                              {productionCompanies?.length - 1 !== i && ", "}
+                            </span>
+                          ))}
+                        </span>
+                      </div>
+                    )}
+
                   </div>
                 </div>
               </ContentWrapper>
