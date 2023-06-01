@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 export const homeSlice = createSlice({
   name: "home",
-  initialState:{    //using components we set therse values of url and genres
+  initialState:{    //using components we set these values of url and genres
     url:{},
     genres:{},   //we'll call genres api and store data here
   },

@@ -8,11 +8,17 @@ import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
 import Genres from "../../../components/genres/Genres";
-import CircleRating from "../../../components/circleRating/CircleRating";
+
 import Img from "../../../components/lazyLoadImage/Img.jsx";
 import PosterFallback from "../../../assets/no-poster.png";
+import CircleRating from "../../../components/cicleRating/CircleRating";
 
 const DetailsBanner = ({ video, crew }) => {
+  const { mediaType, id } = useParams();
+  const { data, loading } = useFetch(`/${mediaType}/${id}`);
+
+  const { url } = useSelector((state) => state.home);
+
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
@@ -22,8 +28,45 @@ const DetailsBanner = ({ video, crew }) => {
   return (
     <div className="detailsBanner">
       {!loading ? (
-        <div>Details Content...</div>
+        <>
+          {!!data && (
+            <>
+              <div className="backdrop-img">
+                <Img src={url.backdrop + data.backdrop_path} />
+              </div>
+              <div className="oacity-layer"></div>
+              <ContentWrapper>
+                <div className="content">
+                  <div className="left">
+                    {data.poster_path ? (
+                      <Img
+                        className="posterImg"
+                        src={url.backdrop + data.poster_path}
+                      />
+                    ) : (
+                      <Img
+                        className="posterImg"
+                        src={PosterFallback}
+                      />
+                    )}
+                  </div>
+                  <div className="right">
+                    <div className="title">
+                        {`${data.name || data.title }(
+                            ${dayjs(data?.release_date).format("YYYY")}
+                        )`}
+                    </div>
+                    <div className="subtitle">
+                            {data.tagline}
+                    </div>
+                  </div>
+                </div>
+              </ContentWrapper>
+            </>
+          )}
+        </>
       ) : (
+        // below is loading skeleton
         <div className="detailsBannerSkeleton">
           <ContentWrapper>
             <div className="left skeleton"></div>
