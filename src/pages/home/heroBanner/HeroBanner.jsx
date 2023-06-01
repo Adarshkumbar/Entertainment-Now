@@ -14,7 +14,7 @@ const HeroBanner = () => {
   const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
 
-  const { data, loading } = useFetch("/movie/popular"); //api call
+  const { data, loading } = useFetch("/movie/upcoming"); //api call
 
   useEffect(() => {
     const bg =
