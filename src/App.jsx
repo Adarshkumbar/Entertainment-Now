@@ -46,7 +46,7 @@ function App() {
           {/* any route but above routes  * below one is used */}
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-       {/* <Footer /> */}
+       <Footer />
     </BrowserRouter>
   );
 }
