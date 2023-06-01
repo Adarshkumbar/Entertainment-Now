@@ -9,8 +9,8 @@ function Home() {
     <div className="homePage">
       <HeroBanner />
       <Trending />
-      <Popular />
       <TopRated />
+      <Popular />
     </div>
   );
   
