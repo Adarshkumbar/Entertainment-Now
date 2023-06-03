@@ -81,10 +81,10 @@ useEffect(()=>{
       <header className={`header ${mobileMenu ? "mobileView " : " "} ${show}`}>
         <ContentWrapper>
           <div className="logo">
-            <a href="">
-              <img src={logo} alt="" />
-            </a>
-            <div id="Enow">ENTERTAINMENT NOW</div>
+            <img src={logo} alt="" onClick={() => navigate("/")} />
+            <div id="Enow" onClick={() => navigate("/")}>
+              ENTERTAINMENT NOW
+            </div>
           </div>
           <ul className="menuItems">
             {/* onclick navigate to desired route/page */}
