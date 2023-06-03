@@ -17,13 +17,14 @@ function App() {
   const dispatch = useDispatch();
 
   const { url } = useSelector((state) => state.home);
-  console.log("url :", url);
+  // console.log("url :", url);
   useEffect(() => {
     fetchApiConfig();
+    genresCall();
   }, []);
   const fetchApiConfig = () => {
     fetchDataFromApi("/configuration").then((res) => {
-      console.log(res);
+      // console.log(res);
 
       const url = {
         backdrop: res.images.secure_base_url + "original", // no / cuz alr present in result of res.images.secure_base_url && original means  size of image
@@ -42,12 +43,11 @@ function App() {
 
     endPoints.forEach((url)=>{
       promises.push(fetchDataFromApi(`/genre/${url}/list`));
-    })
+    });
 
     const data = await Promise.all(promises); // using Promises.all() cuz  it will wait it both responses are recieved (here tv and movie) and we'll get responses in an array togther .......i.e not seperate response for movie and tv
-    // console.log(data);
     data.map(({genres})=>{
-        return genres.map((item)=>(allGenres[item.id]=item))  // id will be "key" and response will be "value"
+        return genres?.map((item)=>(allGenres[item.id]=item))  // id will be "key" and response will be "value"
     })
     dispatch(getGenres(allGenres))
   }
