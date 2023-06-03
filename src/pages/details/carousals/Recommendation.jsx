@@ -7,14 +7,14 @@ const Recommendation = ({ mediaType, id }) => {
   const { data, loading, error } = useFetch(
     `/${mediaType}/${id}/recommendations`
   );
-
   return (
-    <Carousel
+    (data?.results?.length > 1 ) ?
+   ( <Carousel
       title="Recommendations"
       data={data?.results}
       loading={loading}
       endpoint={mediaType}
-    />
+    />) : <></>
   );
 };
 

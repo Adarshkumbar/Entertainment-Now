@@ -29,14 +29,14 @@
                 border-radius: 50%;
                 overflow: hidden;
                 margin-bottom: 15px;
-                @include md {
-                    width: 175px;
-                    height: 175px;
-                    margin-bottom: 25px;
-                }
+                // @include md {
+                //     width: 175px;
+                //     height: 175px;
+                //     margin-bottom: 25px;
+                // }
                 img {
                     width: 100%;
-                    height: 100%;
+                    height: 1000%;
                     object-fit: cover;
                     object-position: center top;
                     display: block;

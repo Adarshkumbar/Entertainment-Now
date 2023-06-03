@@ -39,7 +39,7 @@ const[videoId,setVideoId] = useState(null);
   );
 
   const productionCompanies =data?.production_companies;
-  console.log(productionCompanies);
+  // console.log(productionCompanies);
     // const productionCompany = data.
 
   const toHoursAndMinutes = (totalMinutes) => {
@@ -77,6 +77,7 @@ const[videoId,setVideoId] = useState(null);
                         )`}
                     </div>
                     <div className="subtitle">{data.tagline}</div>
+
                     <Genres data={__genres} />
 
                     <div className="row">

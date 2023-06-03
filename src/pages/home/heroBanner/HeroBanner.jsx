@@ -29,6 +29,9 @@ const HeroBanner = () => {
       navigate(`/search/${query}`); //means go to search page . cuz path-> /search/:query (params)
       // console.log(query);
     }
+    if (query.length > 0){
+      navigate(`/search/${query}`)
+    }
   };
 
   return (
@@ -53,7 +56,7 @@ const HeroBanner = () => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
-            <button>Search</button>
+            <button type="submit" onClick={(e) => searchQueryHandler(e)}>Search</button>
           </div>
         </div>
       </ContentWrapper>

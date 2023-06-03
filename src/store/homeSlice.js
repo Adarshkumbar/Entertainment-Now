@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector, useDispatch } from "react-redux";
 
 export const homeSlice = createSlice({
   name: "home",
