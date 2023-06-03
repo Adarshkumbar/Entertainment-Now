@@ -18,12 +18,10 @@ const Footer = () => {
           <li className="menuItem">FAQ</li>
         </ul>
         <div className="infoText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+          The title and talent pages of IMDb are accessible to all users, but
+          only registered and logged-in users can submit new material and
+          suggest edits to existing entries.<br></br>
+          Thank you TMDB 
         </div>
         <div className="socialIcons">
           <a href="https://github.com/Adarshkumbar" target="__blank">
@@ -37,7 +35,7 @@ const Footer = () => {
           <span className="icon">
             <FaTwitter />
           </span>
-          <a href="https://discord.gg/wAw3Wg2JwF" target="__blank"                                           >
+          <a href="https://discord.gg/wAw3Wg2JwF" target="__blank">
             <span className="icon">
               <FaDiscord />
             </span>

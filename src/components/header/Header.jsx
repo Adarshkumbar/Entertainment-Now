@@ -69,8 +69,11 @@ useEffect(()=>{
   const navigationHandler = (type) => {
     if (type === "movie") {
       navigate("/explore/movie");
-    } else {
+    } else if (type === "tv") {
       navigate("/explore/tv");
+    }
+    else if (type === "contact") {
+      navigate("/contact");
     }
     setMobileMenu(false);
   };
@@ -95,6 +98,9 @@ useEffect(()=>{
               Shows
             </li>
             <li className="menuItem">MyList</li>
+            <li className="menuItem" onClick={() => navigationHandler("contact")}>
+              Contact
+            </li>
             <li className="menuItem">
               <HiOutlineSearch onClick={openSearch} />
             </li>

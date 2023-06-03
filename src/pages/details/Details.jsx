@@ -17,7 +17,7 @@ function Details() {
     <Cast data={credits?.cast} loading={creditsLoading}/>
     <VideosSection data = {data} loading={loading} />
     <Similar mediaType={mediaType} id={id}/>
-    <Recommendation mediaType={mediaType} id={id}/>
+    <Recommendation mediaType={mediaType} id={id} />
   </div>)
 }
 export default Details;
