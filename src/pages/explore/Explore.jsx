@@ -14,10 +14,10 @@ import Spinner from "../../components/spinner/Spinner";
 let filters = {};
 
 const sortbyData = [
-  { value: "popularity.desc", label: "Popularity Descending" },
-  { value: "popularity.asc", label: "Popularity Ascending" },
-  { value: "vote_average.desc", label: "Rating Descending" },
-  { value: "vote_average.asc", label: "Rating Ascending" },
+  { value: "popularity.desc", label: "Popularity " },
+  // { value: "popularity.asc", label: "Popularity Ascending" },
+  { value: "vote_average.desc", label: "Rating " },
+  // { value: "vote_average.asc", label: "Rating Ascending" },
   {
     value: "primary_release_date.desc",
     label: "Release Date Descending",
@@ -147,7 +147,7 @@ const Explore = () => {
                 })}
               </InfiniteScroll>
             ) : (
-              <span className="resultNotFound">Sorry, Results not found!</span>
+              <span className="resultNotFound"> Sorry, Results not found!</span>
             )}
           </>
         )}

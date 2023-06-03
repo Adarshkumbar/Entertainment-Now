@@ -3,6 +3,7 @@ import Popular from "./popular/Popular";
 import "./style.scss";
 import TopRated from "./topRated/TopRated";
 import Trending from "./trending/Trending";
+import Upcoming from "./upcoming/Upcoming";
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       <HeroBanner />
       <Trending />
       <TopRated />
+      <Upcoming />
       <Popular />
     </div>
   );

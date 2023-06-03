@@ -34,6 +34,10 @@
      border-radius: 13px;
      font-family: fantasy;
      cursor: default;
+        @include xsd{
+            width: 200px;
+            font-size: 22px;
+        }
     }
     .contentWrapper {
         display: flex;
@@ -42,9 +46,16 @@
     }
     .logo {
         cursor: pointer;
+        position: relative;
+        left: -20px;
+           @include xsd{
+            left: -50px;
+        }
         img {
             height: 50px;
         }
+     
+        
     }
     .menuItems {
         list-style-type: none;

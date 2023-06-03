@@ -82,9 +82,9 @@ useEffect(()=>{
         <ContentWrapper>
           <div className="logo">
             <img src={logo} alt="" onClick={() => navigate("/")} />
-            <div id="Enow" onClick={() => navigate("/")}>
-              ENTERTAINMENT NOW
-            </div>
+          </div>
+          <div id="Enow" onClick={() => navigate("/")}>
+            ENTERTAINMENT NOW
           </div>
           <ul className="menuItems">
             {/* onclick navigate to desired route/page */}
