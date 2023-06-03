@@ -28,14 +28,14 @@ const[videoId,setVideoId] = useState(null);
   const __genres = data?.genres?.map((gen) => gen.id);
 
   // creating Array of directors and writers
-  const director = crew?.filter((f) => f.job === "Directing" || f.job === "Director"
+  const director = crew?.filter((c) => c.job === "Directing" || c.job === "Director"
   );
   const writer = crew?.filter(
-    (f) =>
-      f.job === "ScreenPlay" ||
-      f.job === "Story" ||
-      f.job === "Writer" ||
-      f.job === "Writing"
+    (c) =>
+      c.job === "ScreenPlay" ||
+      c.job === "Story" ||
+      c.job === "Writer" ||
+      c.job === "Writing"
   );
 
   const productionCompanies =data?.production_companies;
@@ -156,10 +156,10 @@ const[videoId,setVideoId] = useState(null);
                       <div className="info">
                         <span className="text bold">Creator: </span>
                         <span className="text">
-                          {created_by?.map((d, i) => (
+                          {data?.created_by?.map((d, i) => (
                             <span key={i}>
                               {d.name}
-                              {created_by?.length - 1 !== i && ", "}
+                              {data?.created_by?.length - 1 !== i && ", "}
                             </span>
                           ))}
                         </span>

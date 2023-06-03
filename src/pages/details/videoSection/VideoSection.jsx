@@ -6,7 +6,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import Img from "../../../components/lazyLoadImage/Img";
 import { PlayIcon } from "../Playbtn";
-
+import Carousel from "../../../components/carousel/Carousel";
 const VideosSection = ({ data, loading }) => {
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
@@ -61,6 +61,12 @@ const VideosSection = ({ data, loading }) => {
         videoId={videoId}
         setVideoId={setVideoId}
       />
+      {/* <Carousel
+        title="Recommendations"
+        data={data?.results}
+        loading={loading}
+        endpoint={mediaType}
+      /> */}
     </div>
   );
 };

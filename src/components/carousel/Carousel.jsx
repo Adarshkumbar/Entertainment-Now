@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import {
-  BsFillArrowLeftCircleFill,     // these are arrow icons
+  BsFillArrowLeftCircleFill, // these are arrow icons
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -13,11 +13,10 @@ import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../cicleRating/CircleRating";
 import Genres from "../genres/Genres";
 
-
 import "./style.scss";
 
 const Carousel = (props) => {
-    const { data, loading, endpoint, title } = props
+  const { data, loading, endpoint, title } = props;
   const carouselContainer = useRef();
   const { url } = useSelector((state) => state.home);
   const navigate = useNavigate();
@@ -36,7 +35,8 @@ const Carousel = (props) => {
     });
   };
 
-  const skItem = () => {// this function is works / visible while loading/fetching data
+  const skItem = () => {
+    // this function is works / visible while loading/fetching data
     return (
       <div className="skeletonItem">
         <div className="posterBlock skeleton"></div>
