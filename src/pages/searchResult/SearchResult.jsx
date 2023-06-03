@@ -8,23 +8,27 @@ import ContentWrapper from '../../components/contentWrapper/ContentWrapper';
 import { useEffect, useState } from 'react';
 import Spinner from '../../components/spinner/Spinner'
 import MovieCard from '../../components/movieCard/MovieCard';
+// import useFetch from '../../hooks/useFetch';
 
 function SearchResult() {
   const [data,setData] = useState(null);
   const [pageNum,setPageNum] = useState(1);// we'll provide page no.s 2,3,4 so on to call api and fetch data cuz 1 page returns 20 results ---->infinite scroll
   const [loading,setLoading] = useState(false);
   const {query} = useParams();
+  // console.log("quey is ",query);
 
   const fetchInitialData = () =>{
+    const {newD} = useParams();
+     console.log("jeello");
     setLoading(true);
     fetchDataFromApi(`search/multi?query=${query}&page=${pageNum}`).then(
       (res) => {
         setData(res);
-        setPageNum((prev = prev + 1));
+        setPageNum((prev) => prev + 1);
         setLoading(false);
       }
     );
-
+  }
   //merging new data with old data ..(state ⬆ ) code below
     const fetchNextPageData = () => {
       fetchDataFromApi(`search/multi?query=${query}&page=${pageNum}`).then(
@@ -47,44 +51,47 @@ function SearchResult() {
     //use Effect re-renders code (fetchDataFromApi) every time query changes ...dependency array
     useEffect(() => {
       setPageNum(1);
-      fetchDataFromApi;
+      fetchInitialData();
+      
     }, [query]);
+    // console.log("jello");
 
     return (
       <div className="searchResultsPage">
         {loading && <Spinner initial={true} />}
         {!loading && (
           <ContentWrapper>
-            {data?.results.length > 0 ? (
+            {data?.results?.length > 0 ? (
               <>
+                {console.log("fckkkk",data)}
                 <div className="pageTitle">
                   {`Search ${
-                    data?.total_results > 1 ? "results" : "results"
+                    data?.total_results > 1 ? "results" : "result"
                   } of '${query}'}`}
                 </div>
+
                 <InfiniteScroll
-                 className='content'
-                 dataLength={data?.results.length || []} // 20 in our case
+                  className="content"
+                  dataLength={data?.results?.length || []} // 20 in our case
                   next={fetchNextPageData}
                   hasMore={pageNum <= data?.total_pages}
-                  loader={<Spinner/>}
-                 >
-                  {data?.results.map((item, index) => {
-                    if(item.media_type === "person") return ;
-                      return(
-                        <MovieCard key={index} data={item} fromSearch={true}/>
-                      )
+                  loader={<Spinner />}
+                >
+                  {data?.results?.map((item, index) => {
+                    if (item.media_type === "person") return;
+                    return (
+                      <MovieCard key={index} data={item} fromSearch={true} />
+                    );
                   })}
                 </InfiniteScroll>
               </>
             ) : (
-              <span className="resultNotFound">
-                😖 Sorry, Page not found !!!
-              </span>
+              <span className="resultNotFound">😖 Page not found !!!😖</span>
             )}
           </ContentWrapper>
         )}
       </div>
     );
-  }}
+  }
+  
 export default SearchResult;

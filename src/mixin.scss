@@ -1,6 +1,12 @@
 //mixin property in ScSS
+@mixin tiny{
+    @media only screen and (min-width: 100px) and (max-width:350px) {
+        @content;
+    }
+}
+
 @mixin xsd {
-    @media only screen and (max-width:510px) {
+    @media only screen and (min-width: 350px) and (max-width:510px ) {
         @content;
     }
 }

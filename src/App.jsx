@@ -49,7 +49,7 @@ function App() {
     data.map(({genres})=>{
         return genres.map((item)=>(allGenres[item.id]=item))  // id will be "key" and response will be "value"
     })
-    dispatch(getGenres(allgenres))
+    dispatch(getGenres(allGenres))
   }
 
   return (

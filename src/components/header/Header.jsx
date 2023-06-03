@@ -49,6 +49,7 @@ useEffect(()=>{
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`); //means go to search page . cuz path-> /search/:query (params)
+      console.log(`/search/${query}`);
       setTimeout(() => {
         //making search bar disable after one sec after search
         setShowSearch(false);

@@ -21,7 +21,7 @@ const Footer = () => {
           The title and talent pages of IMDb are accessible to all users, but
           only registered and logged-in users can submit new material and
           suggest edits to existing entries.<br></br>
-          Thank you TMDB 
+          Thank you TMDB
         </div>
         <div className="socialIcons">
           <a href="https://github.com/Adarshkumbar" target="__blank">
@@ -29,9 +29,11 @@ const Footer = () => {
               <FaGithub />
             </span>
           </a>
-          <span className="icon">
-            <FaLinkedin />
-          </span>
+          <Link to={"https://www.linkedin.com/in/adarshkumbar/"} target="__blank">
+            <span className="icon" >
+              <FaLinkedin />
+            </span>
+          </Link>
           <span className="icon">
             <FaTwitter />
           </span>

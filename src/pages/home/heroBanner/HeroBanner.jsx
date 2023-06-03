@@ -27,6 +27,7 @@ const HeroBanner = () => {
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`); //means go to search page . cuz path-> /search/:query (params)
+      // console.log(query);
     }
   };
 
@@ -38,7 +39,7 @@ const HeroBanner = () => {
         </div>
       )}
 
-        <div className="opacity-layer"></div>
+      <div className="opacity-layer"></div>
       <ContentWrapper>
         <div className="heroBannerContent">
           <span className="title">Welcome</span>
@@ -49,8 +50,8 @@ const HeroBanner = () => {
             <input
               type="text"
               placeholder="Search for a movie or show ......"
-              onKeyUp={searchQueryHandler}
               onChange={(e) => setQuery(e.target.value)}
+              onKeyUp={searchQueryHandler}
             />
             <button>Search</button>
           </div>
