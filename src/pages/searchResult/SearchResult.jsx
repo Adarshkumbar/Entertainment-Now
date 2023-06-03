@@ -8,6 +8,7 @@ import ContentWrapper from '../../components/contentWrapper/ContentWrapper';
 import { useEffect, useState } from 'react';
 import Spinner from '../../components/spinner/Spinner'
 import MovieCard from '../../components/movieCard/MovieCard';
+
 function SearchResult() {
   const [data,setData] = useState(null);
   const [pageNum,setPageNum] = useState(1);// we'll provide page no.s 2,3,4 so on to call api and fetch data cuz 1 page returns 20 results ---->infinite scroll
@@ -45,6 +46,7 @@ function SearchResult() {
 
     //use Effect re-renders code (fetchDataFromApi) every time query changes ...dependency array
     useEffect(() => {
+      setPageNum(1);
       fetchDataFromApi;
     }, [query]);
 
@@ -53,15 +55,21 @@ function SearchResult() {
         {loading && <Spinner initial={true} />}
         {!loading && (
           <ContentWrapper>
-            {data.results.length > 0 ? (
+            {data?.results.length > 0 ? (
               <>
                 <div className="pageTitle">
                   {`Search ${
-                    data.total_results > 1 ? "results" : "results"
+                    data?.total_results > 1 ? "results" : "results"
                   } of '${query}'}`}
                 </div>
-                <InfiniteScroll>
-                  {data.results.map((item, index) => {
+                <InfiniteScroll
+                 className='content'
+                 dataLength={data?.results.length || []} // 20 in our case
+                  next={fetchNextPageData}
+                  hasMore={pageNum <= data?.total_pages}
+                  loader={<Spinner/>}
+                 >
+                  {data?.results.map((item, index) => {
                     if(item.media_type === "person") return ;
                       return(
                         <MovieCard key={index} data={item} fromSearch={true}/>
