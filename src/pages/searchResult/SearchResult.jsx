@@ -18,10 +18,9 @@ function SearchResult() {
   // console.log("quey is ",query);
 
   const fetchInitialData = () =>{
-    const {newD} = useParams();
-     console.log("jeello");
+     console.log("hello");
     setLoading(true);
-    fetchDataFromApi(`search/multi?query=${query}&page=${pageNum}`).then(
+    fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
       (res) => {
         setData(res);
         setPageNum((prev) => prev + 1);
@@ -31,7 +30,7 @@ function SearchResult() {
   }
   //merging new data with old data ..(state ⬆ ) code below
     const fetchNextPageData = () => {
-      fetchDataFromApi(`search/multi?query=${query}&page=${pageNum}`).then(
+      fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
         (res) => {
           if (data?.results) {
             setData({
@@ -44,7 +43,6 @@ function SearchResult() {
           setPageNum((prev)=> prev + 1);
           //increment page when we get new data from api
         }
-        
       );
     };
 
@@ -52,7 +50,6 @@ function SearchResult() {
     useEffect(() => {
       setPageNum(1);
       fetchInitialData();
-      
     }, [query]);
     // console.log("jello");
 
@@ -63,11 +60,10 @@ function SearchResult() {
           <ContentWrapper>
             {data?.results?.length > 0 ? (
               <>
-                {console.log("fckkkk",data)}
                 <div className="pageTitle">
                   {`Search ${
                     data?.total_results > 1 ? "results" : "result"
-                  } of '${query}'}`}
+                  } of '${query}'`}
                 </div>
 
                 <InfiniteScroll
