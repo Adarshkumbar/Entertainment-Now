@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"; //use to navigate to url/Route
 import "./style.scss";
-
+import Typewriter from "typewriter-effect";
 import { useSelector } from "react-redux";
 import useFetch from "../../../hooks/useFetch";
 
@@ -45,8 +45,17 @@ const HeroBanner = () => {
 
       <div className="opacity-layer"></div>
       <ContentWrapper>
-        <div className="heroBannerContent">
-          <span className="title">Welcome</span>
+        <div className="heroBannerContent" >
+          <span className="title" >
+            <Typewriter
+              options={{
+                strings: ["❤️"," Welcome","❤️"],
+                autoStart: true,
+                loop: true,
+              }}
+             
+            />
+          </span>
           <span className="subTitle">
             Millions of Movies, Shows and people to dicover. Explore Now.
           </span>
@@ -57,7 +66,9 @@ const HeroBanner = () => {
               onChange={(e) => setQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
             />
-            <button type="submit" onClick={(e) => navigate(`/search/${query}`)}>Search</button>
+            <button type="submit" onClick={(e) => navigate(`/search/${query}`)}>
+              Search
+            </button>
           </div>
         </div>
       </ContentWrapper>

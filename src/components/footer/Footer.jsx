@@ -2,9 +2,10 @@ import React from "react";
 import { FaGithub, FaTwitter, FaLinkedin,FaDiscord } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
-import ContentWrapper from "../contentWrapper/ContentWrapper";
+
 
 import "./style.scss";
+import ContentWrapper from "../contentWrapper/contentWrapper";
 
 const Footer = () => {
   return (
@@ -18,9 +19,8 @@ const Footer = () => {
           <li className="menuItem">FAQ</li>
         </ul>
         <div className="infoText">
-          The title and talent pages of IMDb are accessible to all users, but
-          only registered and logged-in users can submit new material and
-          suggest edits to existing entries.<br></br>
+          The Movies and Shows pages of Entertainment Now are accessible to all users, but
+          only registered and logged-in users can submit new material Add to list and Share<br></br>
           Thank you TMDB
         </div>
         <div className="socialIcons">

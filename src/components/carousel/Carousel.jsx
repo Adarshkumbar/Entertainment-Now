@@ -2,18 +2,20 @@ import React, { useRef } from "react";
 import {
   BsFillArrowLeftCircleFill, // these are arrow icons
   BsFillArrowRightCircleFill,
+  BsCaretLeft,
+  BsCaretRight,
 } from "react-icons/bs";
+import { FaBeer } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-
-import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../cicleRating/CircleRating";
 import Genres from "../genres/Genres";
 
 import "./style.scss";
+import ContentWrapper from "../contentWrapper/contentWrapper";
 
 const Carousel = (props) => {
   const { data, loading, endpoint, title } = props;
@@ -52,11 +54,11 @@ const Carousel = (props) => {
     <div className="carousel">
       <ContentWrapper>
         {title && <div className="carouselTitle">{title}</div>}
-        <BsFillArrowLeftCircleFill
-          className="carouselLeftNav arrow"
+        <BsCaretLeft
+          className=" carouselLefttNav arrow"
           onClick={() => navigation("left")}
         />
-        <BsFillArrowRightCircleFill
+        <BsCaretRight
           className="carouselRighttNav arrow"
           onClick={() => navigation("right")}
         />
