@@ -65,6 +65,8 @@
         
     }
     .menuItems {
+        font-family: 'Courier New', Courier, monospace;
+        // font-weight: 1000 ;
         list-style-type: none;
         display: none;
         align-items: center;
@@ -77,7 +79,7 @@
             align-items: center;
             margin: 0 15px;
             color: white;
-            font-weight: 500;
+            font-weight: 1000;
             position: relative;
             &.searchIcon {
                 margin-right: 0;

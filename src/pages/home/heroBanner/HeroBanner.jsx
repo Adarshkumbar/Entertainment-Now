@@ -49,7 +49,7 @@ const HeroBanner = () => {
           <span className="title" >
             <Typewriter
               options={{
-                strings: ["❤️"," Welcome","❤️"],
+                strings: ["❤️"," Welcome"],
                 autoStart: true,
                 loop: true,
               }}

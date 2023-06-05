@@ -1,0 +1,28 @@
+@import "../../mixin.scss";
+.contact {
+  color: white;
+  position: relative;
+  top: 20vh;
+  // background: rgb(235, 191, 191);
+  .title {
+    height: 400px;
+    font-size: 100px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif,
+      sans-serif;
+      
+  }
+  .text-gradient {
+      /* Set the background color */
+    //   background: linear-gradient(to right, #ff8a00 0%, #dd4c4f 100%);
+      /* Mask the color to the text, and remove the rest  */
+      background: linear-gradient(132deg, rgb(0, 255, 157) 0.00%, rgb(227, 43, 175) 100.00%);
+      -webkit-background-clip: text;
+      /* Make the text fill color value transparent so the masked background color comes through */
+      -webkit-text-fill-color: transparent;
+      .info_1{
+       margin: 100px 0px;
+        font-size: 30px;
+      }
+    }
+}
