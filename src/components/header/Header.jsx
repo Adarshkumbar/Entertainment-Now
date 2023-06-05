@@ -6,8 +6,8 @@ import { useNavigate, useLocation } from "react-router-dom"; //use navigate to g
 
 import "./style.scss";
 
-import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/logo.svg";
+import ContentWrapper from "../contentWrapper/contentWrapper";
 
 const Header = () => {
   const [show, setShow] = useState("top"); // creating scrolling effect with this
@@ -49,7 +49,7 @@ useEffect(()=>{
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`); //means go to search page . cuz path-> /search/:query (params)
-      console.log(`/search/${query}`);
+      // console.log(`/search/${query}`);
       setTimeout(() => {
         //making search bar disable after one sec after search
         setShowSearch(false);

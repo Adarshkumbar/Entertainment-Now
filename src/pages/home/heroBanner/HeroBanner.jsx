@@ -7,7 +7,7 @@ import useFetch from "../../../hooks/useFetch";
 
 import Img from "../../../components/lazyLoadImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/contentWrapper";
-
+import levi from "../../../gifs/csm power.gif";
 const HeroBanner = () => {
   const [background, setBackground] = useState(""); // sets background img of HOME PAGE
   const [query, setQuery] = useState("");
@@ -20,14 +20,14 @@ const HeroBanner = () => {
     const bg =
       url.backdrop +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path; //got this from api and assign to bg to set background image of home page
-    setBackground(bg);
+    setBackground(bg || levi);
   }, [data]);
 
   //this method takes input and sends via component
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`); //means go to search page . cuz path-> /search/:query (params)
-      console.log(query);
+      // console.log(query);
     }
   };
 

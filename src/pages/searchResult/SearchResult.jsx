@@ -4,10 +4,11 @@ import { fetchDataFromApi } from '../../utils/api'
 
 import noResults from "../../assets/no-results.png"
 import "./style.scss";
-import ContentWrapper from '../../components/contentWrapper/ContentWrapper';
+
 import { useEffect, useState } from 'react';
 import Spinner from '../../components/spinner/Spinner'
 import MovieCard from '../../components/movieCard/MovieCard';
+import ContentWrapper from '../../components/contentWrapper/contentWrapper';
 // import useFetch from '../../hooks/useFetch';
 
 function SearchResult() {
@@ -18,7 +19,7 @@ function SearchResult() {
   // console.log("quey is ",query);
 
   const fetchInitialData = () =>{
-     console.log("hello");
+    //  console.log("hello");
     setLoading(true);
     fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
       (res) => {
