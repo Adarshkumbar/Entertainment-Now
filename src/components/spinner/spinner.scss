@@ -11,7 +11,7 @@
         width: 50px;
         height: 50px;
         & .path {
-            stroke: hsl(210, 70, 75);
+            stroke: linear-gradient(62deg, rgb(148, 211, 30) 0.00%, rgb(219, 152, 7) 100.00%);
             stroke-linecap: round;
             animation: dash 1.5s ease-in-out infinite;
         }
