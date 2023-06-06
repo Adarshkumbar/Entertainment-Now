@@ -22,7 +22,18 @@ const HeroBanner = () => {
     const bg =
       url?.backdrop +
       data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path; //got this from api and assign to bg to set background image of home page
-    setBackground(bg || levi);
+      // console.log("bg is ",bg);
+      
+      // conditional rendering
+      let text = String(bg) ;
+      const arr = text.split('/');
+      // console.log('arr ', arr);
+      if(arr[0] == "undefined")
+     {  setBackground(levi)}
+     else{
+      setBackground(bg);
+     }
+    
   }, [data]);
 
   //this method takes input and sends via component

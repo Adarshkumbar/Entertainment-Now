@@ -17,11 +17,11 @@ const Animation = () => {
   };
 
   const d = new Date();
-  console.log(d);
+  // console.log(d);
 
   const xD = dayjs(d).format("MM");
 
-  console.log(xD);
+  // console.log(xD);
   return (
     <div className="carouselSection">
       <ContentWrapper>
@@ -29,7 +29,7 @@ const Animation = () => {
         <SwitchTabs data={["Movies", "Shows"]} onTabChange={onTabChange} />
         {/* above we can render more things to like year month etc && 1st onTabChange is prop and 2nd one is method we created*/}
       </ContentWrapper>
-    {    console.log(data?.results) }
+    {/* {    console.log(data?.results) } */}
           <Carousel
             data={data?.results}
             loading={loading}

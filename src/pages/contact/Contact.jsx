@@ -17,7 +17,10 @@ const Contacts = () => {
                 pauseFor: 30,
               }}
             />
-            <div className="info_1" >Click icons on footer to Contact <br></br>👇</div>
+            {/* style={{ fontSize: "30px", margin: "100px 0px" }} */}
+            <div className="info_1">
+              Click icons to Contact <br></br>👇
+            </div>
           </div>
         </div>
       </ContentWrapper>
