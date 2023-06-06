@@ -14,8 +14,10 @@ const HeroBanner = () => {
   const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
 
-  const { data, loading } = useFetch("/movie/popular"); //api call
+  const { data, loading } = useFetch("/tv/top_rated"); //api call
+  //api.themoviedb.org/3/discover/movie?with_genres=16    || /movie/top_rated
 
+  // const { data, loading } = useFetch("/discover/movie?with_genres=16"); //api call
   useEffect(() => {
     const bg =
       url?.backdrop +
@@ -45,15 +47,14 @@ const HeroBanner = () => {
 
       <div className="opacity-layer"></div>
       <ContentWrapper>
-        <div className="heroBannerContent" >
-          <span className="title" >
+        <div className="heroBannerContent">
+          <span className="title">
             <Typewriter
               options={{
-                strings: ["❤️"," Welcome"],
+                strings: ["❤️", " Welcome"],
                 autoStart: true,
                 loop: true,
               }}
-             
             />
           </span>
           <span className="subTitle">

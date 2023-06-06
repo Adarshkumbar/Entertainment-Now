@@ -27,9 +27,9 @@ function App() {
       // console.log(res);
 
       const url = {
-        backdrop: res.images.secure_base_url + "original", // no / cuz alr present in result of res.images.secure_base_url && original means  size of image
-        poster: res.images.secure_base_url + "original",//original is size 
-        profile: res.images.secure_base_url + "original",
+        backdrop: res.images?.secure_base_url + "original", // no / cuz alr present in result of res.images.secure_base_url && original means  size of image
+        poster: res.images?.secure_base_url + "original",//original is size 
+        profile: res.images?.secure_base_url + "original",
       };
 
       dispatch(getApiConfiguration(url)); //passing res in action to set values i.e Store

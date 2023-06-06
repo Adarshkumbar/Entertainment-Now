@@ -1,4 +1,5 @@
 import HeroBanner from "./heroBanner/HeroBanner";
+import OnTheAir from "./onTheAir/OnTheAir";
 import Popular from "./popular/Popular";
 import "./style.scss";
 import TopRated from "./topRated/TopRated";
@@ -11,8 +12,9 @@ function Home() {
       <HeroBanner />
       <Trending />
       <TopRated />
-      <Upcoming />
+      <OnTheAir />
       <Popular />
+      <Upcoming />
     </div>
   );
 }

@@ -4,13 +4,12 @@ import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
 import useFetch from "../../../hooks/useFetch";
 import Carousel from "../../../components/carousel/Carousel";
 import dayjs from "dayjs";
-
+import { fetchDataFromApi } from "../../../utils/api";
 //css for all carousal is in Home style.scss
+const Animation = () => {
+  const [endpoint, setEndpoint] = useState("movie"); //send this to api call
 
-const OnTheAir = () => {
-  const [endpoint, setEndpoint] = useState("tv"); //send this to api call
-
-  const { data, loading } = useFetch(`/${endpoint}/on_the_air/`);
+  const { data, loading } = useFetch(`/discover/${endpoint}?with_genres=16`);
 
   //for every tab change we call API
   const onTabChange = (tab) => {
@@ -26,7 +25,7 @@ const OnTheAir = () => {
   return (
     <div className="carouselSection">
       <ContentWrapper>
-        <span className="carouselTitle">On The Air Shows</span>
+        <span className="carouselTitle">Animation</span>
         <SwitchTabs data={["Movies", "Shows"]} onTabChange={onTabChange} />
         {/* above we can render more things to like year month etc && 1st onTabChange is prop and 2nd one is method we created*/}
       </ContentWrapper>
@@ -41,4 +40,4 @@ const OnTheAir = () => {
   );
 };
 
-export default OnTheAir;
+export default Animation;
