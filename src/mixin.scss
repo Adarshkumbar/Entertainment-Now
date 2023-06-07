@@ -41,6 +41,12 @@
     }
 }
 
+@mixin tv_ {
+    @media only screen and (min-width : 1920px) {
+        @content;
+    }
+}
+
 @mixin ellipsis($line: 2) {
     display: -webkit-box;
     -webkit-line-clamp: $line;

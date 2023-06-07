@@ -42,6 +42,9 @@
             width: 180px;
             font-size: 20px;
         }
+        @include tv_{
+            left : 30%;
+        }
     }
     .contentWrapper {
         display: flex;
