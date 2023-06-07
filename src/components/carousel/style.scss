@@ -27,14 +27,14 @@
             opacity: 2;
             font-size: 35px;
             transition: ease;
-            color:var(--gradient) ;
+            color:var(--orange) ;
         }
     }
-    .carouselLeftNav {
-        left: 30px;
+    .carouselLefttNav {
+        left: -8px;
     }
     .carouselRighttNav {
-        right: 30px;
+        right: -8px;
     }
     .loadingSkeleton {
         display: flex;
