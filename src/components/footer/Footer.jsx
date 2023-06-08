@@ -19,25 +19,38 @@ const Footer = () => {
           <li className="menuItem">FAQ</li>
         </ul>
         <div className="infoText">
-          The Movies and Shows pages of Entertainment Now are accessible to all users, but
-          only registered and logged-in users can submit new material Add to list and Share<br></br>
+          The Movies and Shows pages of Entertainment Now are accessible to all
+          users, but only registered and logged-in users can submit new material
+          Add to list and Share<br></br>
           Thank you TMDB
         </div>
         <div className="socialIcons">
-          <a href="https://github.com/Adarshkumbar" target="__blank">
+          <a
+            href="https://github.com/Adarshkumbar"
+            target="__blank"
+            style={{ color: "#FFF" }}
+          >
             <span className="icon">
               <FaGithub />
             </span>
           </a>
-          <Link to={"https://www.linkedin.com/in/adarshkumbar/"} target="__blank">
-            <span className="icon" >
+          <Link
+            to={"https://www.linkedin.com/in/adarshkumbar/"}
+            target="__blank"
+            style={{ color: "#FFF" }}
+          >
+            <span className="icon">
               <FaLinkedin />
             </span>
           </Link>
           <span className="icon">
             <FaTwitter />
           </span>
-          <a href="https://discord.gg/wAw3Wg2JwF" target="__blank">
+          <a
+            href="https://discord.gg/wAw3Wg2JwF"
+            target="__blank"
+            style={{ color: "#FFF" }}
+          >
             <span className="icon">
               <FaDiscord />
             </span>
