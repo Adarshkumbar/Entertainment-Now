@@ -34,6 +34,10 @@
      border-radius: 13px;
      font-family: fantasy;
      cursor: default;
+            &:hover {
+                    opacity: .9;
+            transition: ease;
+        }
         @include xsd{
             width: 200px;
             font-size: 22px;

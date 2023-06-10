@@ -95,6 +95,7 @@
         .carouselItem {
             width: 125px;
             cursor: pointer;
+            
             @include md {
                 width: calc(25% - 15px);
             }
@@ -149,7 +150,11 @@
                         justify-content: flex-end;
                     }
                 }
+                       &:hover {
+                       opacity: 0.8;
+                    }
             }
+     
             .textBlock {
                 color: white;
                 display: flex;
@@ -168,6 +173,8 @@
                     opacity: 0.5;
                 }
             }
+               
         }
+     
     }
 }
