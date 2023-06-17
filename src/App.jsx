@@ -13,6 +13,7 @@ import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
 import Contact from "./pages/contact/Contact";
 import levi from './gifs/csm power.gif';
+import MyList from "./pages/myList/MyList";
 function App() {
   const dispatch = useDispatch();
 
@@ -55,17 +56,18 @@ function App() {
   return (
     // ENTIRE App will be wrapped inside  BrowserRouter
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType/" element={<Explore />} />
-        <Route path="/contact" element={<Contact/>} />
-        {/* any route but above routes  * below one is used */}
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/mylist" element={<MyList />} />
+        {/* any route but above routes  * i.e below one is used */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

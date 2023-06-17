@@ -1,3 +1,5 @@
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 import HeroBanner from "./heroBanner/HeroBanner";
 import OnTheAir from "./onTheAir/OnTheAir";
 import Popular from "./popular/Popular";
@@ -8,14 +10,18 @@ import Upcoming from "./upcoming/Upcoming";
 
 function Home() {
   return (
-    <div className="homePage">
-      <HeroBanner />
-      <Trending />
-      <TopRated />
-      <OnTheAir />
-      <Popular />
-      <Upcoming />
-    </div>
+    <>
+      <Header />
+      <div className="homePage">
+        <HeroBanner />
+        <Trending />
+        <TopRated />
+        <OnTheAir />
+        <Popular />
+        <Upcoming />
+      </div>
+      <Footer />
+    </>
   );
 }
 export default Home;

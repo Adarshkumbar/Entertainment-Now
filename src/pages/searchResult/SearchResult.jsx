@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import Spinner from '../../components/spinner/Spinner'
 import MovieCard from '../../components/movieCard/MovieCard';
 import ContentWrapper from '../../components/contentWrapper/contentWrapper';
+import Header from '../../components/header/Header';
+import Footer from '../../components/footer/Footer';
 // import useFetch from '../../hooks/useFetch';
 
 function SearchResult() {
@@ -55,39 +57,43 @@ function SearchResult() {
     // console.log("jello");
 
     return (
-      <div className="searchResultsPage">
-        {loading && <Spinner initial={true} />}
-        {!loading && (
-          <ContentWrapper>
-            {data?.results?.length > 0 ? (
-              <>
-                <div className="pageTitle">
-                  {`Search ${
-                    data?.total_results > 1 ? "results" : "result"
-                  } of '${query}'`}
-                </div>
+      <>
+      <Header />
+        <div className="searchResultsPage">
+          {loading && <Spinner initial={true} />}
+          {!loading && (
+            <ContentWrapper>
+              {data?.results?.length > 0 ? (
+                <>
+                  <div className="pageTitle">
+                    {`Search ${
+                      data?.total_results > 1 ? "results" : "result"
+                    } of '${query}'`}
+                  </div>
 
-                <InfiniteScroll
-                  className="content"
-                  dataLength={data?.results?.length || []} // 20 in our case
-                  next={fetchNextPageData}
-                  hasMore={pageNum <= data?.total_pages}
-                  loader={<Spinner />}
-                >
-                  {data?.results?.map((item, index) => {
-                    if (item.media_type === "person") return;
-                    return (
-                      <MovieCard key={index} data={item} fromSearch={true} />
-                    );
-                  })}
-                </InfiniteScroll>
-              </>
-            ) : (
-              <span className="resultNotFound">😖 Page not found !!!😖</span>
-            )}
-          </ContentWrapper>
-        )}
-      </div>
+                  <InfiniteScroll
+                    className="content"
+                    dataLength={data?.results?.length || []} // 20 in our case
+                    next={fetchNextPageData}
+                    hasMore={pageNum <= data?.total_pages}
+                    loader={<Spinner />}
+                  >
+                    {data?.results?.map((item, index) => {
+                      if (item.media_type === "person") return;
+                      return (
+                        <MovieCard key={index} data={item} fromSearch={true} />
+                      );
+                    })}
+                  </InfiniteScroll>
+                </>
+              ) : (
+                <span className="resultNotFound">😖 Page not found !!!😖</span>
+              )}
+            </ContentWrapper>
+          )}
+        </div>
+        <Footer />
+      </>
     );
   }
   

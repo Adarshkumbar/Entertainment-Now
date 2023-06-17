@@ -1,13 +1,16 @@
 import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 import "./contacts.scss"
 import { FaGithub, FaTwitter, FaLinkedin, FaDiscord } from "react-icons/fa";
-
+import img from '../../gifs/csm power.gif'
 import { Link } from "react-router-dom";
 
 import Typewriter from "typewriter-effect";
+import Header from "../../components/header/Header";
+import Img from "../../components/lazyLoadImage/Img";
 const Contacts = () => {
   return (
     <>
+      <Header />
       <ContentWrapper>
         <div className="contact">
           <div className="title text-gradient">
