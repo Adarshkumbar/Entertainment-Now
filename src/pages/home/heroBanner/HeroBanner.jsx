@@ -7,7 +7,7 @@ import useFetch from "../../../hooks/useFetch";
 
 import Img from "../../../components/lazyLoadImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/contentWrapper";
-import levi from "../../../gifs/csm power.gif";
+import levi from "../../../gifs/charlie chaplin.jpg";
 const HeroBanner = () => {
   const [background, setBackground] = useState(""); // sets background img of HOME PAGE
   const [query, setQuery] = useState("");
