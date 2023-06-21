@@ -1,0 +1,18 @@
+@import "../../mixin.scss";
+
+.content-nice{
+    position: absolute;
+    top: 10vw;
+    bottom: 0;
+    background-color: rgba(0,0,0,0);
+    height: 50vh;
+    width: 90vw;
+    margin: 6%;
+    display: grid;
+    gap: 3rem,0.5rem;
+    overflow: hidden;
+    .login_btn{
+        width: 50vw;
+        height: 10vw;
+    }
+}

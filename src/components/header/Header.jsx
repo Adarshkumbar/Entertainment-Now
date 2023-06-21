@@ -76,6 +76,10 @@ useEffect(()=>{
     else if (type === "contact") {
       navigate("/contact");
     }
+    else if ( type == "mylist")
+    {
+       navigate("/mylist")
+    }
     setMobileMenu(false);
   };
 
@@ -98,7 +102,7 @@ useEffect(()=>{
             <li className="menuItem" onClick={() => navigationHandler("tv")}>
               Shows
             </li>
-            <li className="menuItem">MyList</li>
+            <li className="menuItem" onClick={()=>navigationHandler("mylist")}>MyList</li>
             <li className="menuItem" onClick={() => navigationHandler("contact")}>
               Contact
             </li>
