@@ -1,5 +1,6 @@
 export default function Login() {
+  console.log("login page");
   return (
-    <div>login</div>
+    <h1>LOGIN PAGE</h1>
   )
 }
