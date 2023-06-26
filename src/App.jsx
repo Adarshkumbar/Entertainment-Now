@@ -14,6 +14,7 @@ import PageNotFound from "./pages/404/PageNotFound";
 import Contact from "./pages/contact/Contact";
 import levi from './gifs/csm power.gif';
 import MyList from "./pages/myList/MyList";
+import Login from "./pages/myList/Login";
 function App() {
   const dispatch = useDispatch();
 
@@ -64,6 +65,7 @@ function App() {
         <Route path="/explore/:mediaType/" element={<Explore />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/mylist" element={<MyList />} />
+        <Route path="/login" element={<Login />} />
         {/* any route but above routes  * i.e below one is used */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>

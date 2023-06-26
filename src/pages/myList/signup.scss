@@ -1,11 +1,15 @@
-.container{
-    img{
-        width:100vw;
-
-    }
+h2{
+    display: inline;
+    height: 29px;
 }
 .content-nice{
-    //  position: relative;
+     position: relative;
+     .container{
+    img{
+        width:100vw;
+    }
+    }
+    .content {
     position: absolute;
     top: 0;
     left: 0;
@@ -14,4 +18,27 @@
     width: 100vw;
     display: grid;
     grid-template-rows: 15vh 85vh;
+    .forForm{
+        display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+    .form{
+        position: absolute;
+       gap: 6px;
+       input{
+        width: 20rem;
+        border-radius: 6px;
+        text-align: center;
+        height: 1.5rem;
+       }
+       button{
+        border-radius: 6px;
+        width: 20rem;
+        background: gold;
+       }
+    }
+    }
+   
+    }
 }

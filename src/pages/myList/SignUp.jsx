@@ -10,6 +10,7 @@ import { firebaseAuth } from '../../utils/firebaseConfig'
 import {createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth'
 import MyList from './MyList';
 import { useNavigate } from 'react-router-dom';
+import Heading from './Heading';
 
  function SignUp() {
 
@@ -37,56 +38,53 @@ import { useNavigate } from 'react-router-dom';
 const navigate = useNavigate()
   
   return (
-    <>
-      <Header />
-      <h1 style={{ color: "Red" }}>Sup</h1>
-      {
-        <>
-          {/* <MyList login /> */}
-          <div className="container" style={{ overflow: "hidden" }}>
-            <img
-              src={bg}
-              // alt="no image"
-              // style={{ width: "100vw", height: "100vh" }}
+    <div className="content-nice">
+      {/* <MyList login /> */}
+      <div className="container" style={{ overflow: "hidden" }}>
+        <img
+          src={bg}
+          // alt="no image"
+          // style={{ width: "100vw", height: "100vh" }}
+        />
+      </div>
+      <div className="content">
+       <Heading login/>
+        <div className="signUp">signUp</div>
+        <h2>SignUp to Add movies to List</h2>
+        <div className="forForm">
+          <div className="form">
+            <input
+              type="email"
+              placeholder="Email Id "
+              name="email"
+              value={formValues.email}
+              onChange={(e) =>
+                setformValues({
+                  ...formValues,
+                  [e.target.name]: e.target.value,
+                })
+              }
             />
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={formValues.password}
+              onChange={(e) =>
+                setformValues({
+                  ...formValues,
+                  [e.target.name]: e.target.value,
+                })
+              }
+            />
+            <button>Get started</button>
+            <button className="login" onClick={handleSignIn}>
+              Login{" "}
+            </button>
           </div>
-          {/* <ContentWrapper> */}
-            <div className="content-nice">
-              <div className="signUp">signUp</div>
-              <h2>SignUp to Add movies to List</h2>
-              <div className="form">
-                <input
-                  type="email"
-                  placeholder="Email Id "
-                  name="email"
-                  value={formValues.email}
-                  onChange={(e) =>
-                    setformValues({
-                      ...formValues,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={formValues.password}
-                  onChange={(e) =>
-                    setformValues({
-                      ...formValues,
-                      [e.target.name]: e.target.value,
-                    })
-                  }
-                />
-                <button>Get started</button>
-              </div>
-              <button onClick={handleSignIn}>Login </button>
-            </div>
-          {/* </ContentWrapper> */}
-        </>
-      }
-    </>
+        </div>
+      </div>
+    </div>
   );
 }
 export default SignUp; 
