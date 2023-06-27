@@ -1,7 +1,7 @@
 import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 import "./contacts.scss"
 import { FaGithub, FaTwitter, FaLinkedin, FaDiscord } from "react-icons/fa";
-import img from '../../gifs/csm power.gif'
+import img from '../../gifs/csm power.jpg'
 import { Link } from "react-router-dom";
 
 import Typewriter from "typewriter-effect";

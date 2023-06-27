@@ -12,9 +12,10 @@ import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
 import Contact from "./pages/contact/Contact";
-import levi from './gifs/csm power.gif';
+import levi from "./gifs/csm power.jpg";
 import MyList from "./pages/myList/MyList";
 import Login from "./pages/myList/Login";
+import SignUp from "./pages/myList/SignUp";
 function App() {
   const dispatch = useDispatch();
 
@@ -66,6 +67,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/mylist" element={<MyList />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         {/* any route but above routes  * i.e below one is used */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>

@@ -78,7 +78,7 @@ useEffect(()=>{
     }
     else if ( type == "mylist")
     {
-       navigate("/mylist")
+       navigate("/signup")
     }
     setMobileMenu(false);
   };

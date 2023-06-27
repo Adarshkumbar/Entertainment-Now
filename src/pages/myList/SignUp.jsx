@@ -4,7 +4,7 @@ import ContentWrapper from '../../components/contentWrapper/contentWrapper'
 import Header from '../../components/header/Header';
 import Img from '../../components/lazyLoadImage/Img';
 import bg from "../../gifs/spiderman aross.jpg";
-import csm from '../../gifs/csm power.gif';
+import csm from "../../gifs/csm power.jpg";
 import './signup.scss'
 import { firebaseAuth } from '../../utils/firebaseConfig'
 import {createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth'
@@ -16,22 +16,23 @@ import Heading from './Heading';
 
   console.log("Signup Component");
   const [showPassword , setShowPassword] = useState(false);
+  // below state is for maintaining the values
   const [formValues , setformValues] = useState({
     email : '',
     password : '',
   })
     const handleSignIn = async () => {
       console.log('heelllo');
-      // try {
-      //   const { email, password } = formValues;
-      //   await createUserWithEmailAndPassword(firebaseAuth, email, password);
-      // } catch (err) {
-      //   console.log(err);
-      //   console.log("hello");
-      // }
+      try {
+        const { email, password } = formValues;
+        await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      } catch (err) {
+        console.log(err);
+        console.log("hello");
+      }
     };
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-      if (currentUser) navigate("/");
+      if (currentUser) navigate("/mylist");
     });
 
 
@@ -77,9 +78,9 @@ const navigate = useNavigate()
                 })
               }
             />
-            <button>Get started</button>
-            <button className="login" onClick={handleSignIn}>
-              Login{" "}
+            {/* <button>Get started</button> */}
+            <button  onClick={handleSignIn}>
+              Sign Up{" "}
             </button>
           </div>
         </div>

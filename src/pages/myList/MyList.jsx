@@ -1,16 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
-import SignUp from "./SignUp";
 
-export default function MyList(props) {
+export default function MyList() {
   const navigate = useNavigate();
-  console.log('running once ?');
   return (
     <>
-      <SignUp />
+      <h1>Tis the damn season</h1>
     </>
-    // <ContentWrapper>
-    //   <button onClick={()=> navigate(props.login ? '/login' : '/signup')}> {props.login ? 'Login ' : 'Sign Up'}</button>
-    // </ContentWrapper>
   );
 }
