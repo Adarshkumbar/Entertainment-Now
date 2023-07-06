@@ -12,7 +12,7 @@ import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
 import Contact from "./pages/contact/Contact";
-import levi from "./gifs/csm power.jpg";
+import levi from "./gifs/csm power.gif";
 import MyList from "./pages/myList/MyList";
 import Login from "./pages/myList/Login";
 import SignUp from "./pages/myList/SignUp";

@@ -7,7 +7,7 @@ import useFetch from "../../../hooks/useFetch";
 
 import Img from "../../../components/lazyLoadImage/Img";
 import ContentWrapper from "../../../components/contentWrapper/contentWrapper";
-import levi from "../../../gifs/csm power.jpg";
+import levi from "../../../gifs/csm power.gif";
 const HeroBanner = () => {
   const [background, setBackground] = useState(""); // sets background img of HOME PAGE
   const [query, setQuery] = useState("");
