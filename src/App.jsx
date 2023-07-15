@@ -16,9 +16,18 @@ import levi from "./gifs/csm power.gif";
 import MyList from "./pages/myList/MyList";
 import Login from "./pages/myList/Login";
 import SignUp from "./pages/myList/SignUp";
-function App() {
-  const dispatch = useDispatch();
+import {  CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+import LoadingReact from "./components/spinner/LoadingReact";
 
+
+function App() {
+  // this is for loadingSpinner
+  // const [loadSpin,setLoadSpin] = useState(true);
+   let [loading, setLoading] = useState(false);
+   let [color, setColor] = useState("#ffffff");
+  const dispatch = useDispatch();
+  
   const { url } = useSelector((state) => state.home);
   // console.log("url :", url);
   useEffect(() => {
@@ -54,26 +63,43 @@ function App() {
     })
     dispatch(getGenres(allGenres))
   }
+  //  this is for loading
+    useEffect(() => {
+      // Show the loading spinner before rendering the actual content.
+      setLoading(true);
 
-  return (
+      // After the content has rendered, hide the loading spinner.
+      setTimeout(() => {
+        setLoading(false);
+      }, 3000);
+    }, []);
+  
+  // return (
     // ENTIRE App will be wrapped inside  BrowserRouter
-    <BrowserRouter>
-      {/* <Header /> */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/:mediaType/:id" element={<Details />} />
-        <Route path="/search/:query" element={<SearchResult />} />
-        <Route path="/explore/:mediaType/" element={<Explore />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/mylist" element={<MyList />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        {/* any route but above routes  * i.e below one is used */}
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      {/* <Footer /> */}
-    </BrowserRouter>
-  );
+    if(loading) 
+      return ( <LoadingReact /> );
+    else
+      return(
+        <BrowserRouter>
+        {/* <Header /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/:mediaType/:id" element={<Details />} />
+          <Route path="/search/:query" element={<SearchResult />} />
+          <Route path="/explore/:mediaType/" element={<Explore />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/mylist" element={<MyList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/loader" element={<LoadingReact />} />
+          {/* any route but above routes  * i.e below one is used */}
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        {/* <Footer /> */}
+      </BrowserRouter>
+      );
+      
+  // );
 }
 
 export default App;
