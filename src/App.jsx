@@ -88,9 +88,9 @@ function App() {
           <Route path="/search/:query" element={<SearchResult />} />
           <Route path="/explore/:mediaType/" element={<Explore />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/mylist" element={<MyList />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/mylist" element={<MyList />} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
+          {/* <Route path="/signup" element={<SignUp />} /> */}
           <Route path="/loader" element={<LoadingReact />} />
           {/* any route but above routes  * i.e below one is used */}
           <Route path="*" element={<PageNotFound />} />

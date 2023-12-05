@@ -6,7 +6,7 @@ import Img from "../../components/lazyLoadImage/Img";
 import bg from "../../gifs/spiderman aross.jpg";
 import csm from "../../gifs/csm power.gif";
 import "./signup.scss";
-import { firebaseAuth } from "../../utils/firebaseConfig";
+// import { firebaseAuth } from "../../utils/firebaseConfig";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
