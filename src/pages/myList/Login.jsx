@@ -6,7 +6,7 @@ import Img from "../../components/lazyLoadImage/Img";
 import bg from "../../gifs/spiderman aross.jpg";
 import csm from "../../gifs/csm power.gif";
 import "./signup.scss";
-// import { firebaseAuth } from "../../utils/firebaseConfig";
+import { firebaseAuth } from "../../utils/firebaseConfig";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -44,7 +44,7 @@ function Login() {
       {/* <MyList login /> */}
       <div className="container" style={{ overflow: "hidden" }}>
         <img
-          src={bg}
+          src={csm}
         />
       </div>
       <div className="content">
@@ -78,6 +78,7 @@ function Login() {
               }
             />
             <button onClick={handleLogIn}>Login </button>
+            <button onClick={()=>navigate("/")}>Go HOME</button>
           </div>
         </div>
       </div>

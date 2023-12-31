@@ -6,8 +6,8 @@ import Img from '../../components/lazyLoadImage/Img';
 import bg from "../../gifs/spiderman aross.jpg";
 import csm from "../../gifs/csm power.gif";
 import './signup.scss'
-// import { firebaseAuth } from '../../utils/firebaseConfig'
-// import {createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth'
+import { firebaseAuth } from '../../utils/firebaseConfig'
+import {createUserWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth'
 import MyList from './MyList';
 import { useNavigate } from 'react-router-dom';
 import Heading from './Heading';
@@ -82,6 +82,7 @@ const navigate = useNavigate()
             <button  onClick={handleSignIn}>
               Sign Up{" "}
             </button>
+            <button onClick={()=>navigate("/")}>Go HOME</button>
           </div>
         </div>
       </div>
