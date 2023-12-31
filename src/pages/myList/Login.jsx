@@ -24,13 +24,12 @@ function Login() {
     password: "",
   });
   const handleLogIn = async () => {
-    console.log("heelllo");
     try {
       const { email, password } = formValues;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (err) {
       console.log(err);
-      console.log("hello");
+      // console.log("hello");
     }
   };
   onAuthStateChanged(firebaseAuth, (currentUser) => {
@@ -49,8 +48,10 @@ function Login() {
       </div>
       <div className="content">
         <Heading signin />
+        <button style={{background:"red",width:"100px" , height:"30px"}}  onClick={()=>navigate("/")}>Go HOME</button>
         <div className="signUp">Login</div>
         <h2>Login to Add movies to List</h2>
+        
         <div className="forForm">
           <div className="form">
             <input
@@ -78,7 +79,7 @@ function Login() {
               }
             />
             <button onClick={handleLogIn}>Login </button>
-            <button onClick={()=>navigate("/")}>Go HOME</button>
+            
           </div>
         </div>
       </div>

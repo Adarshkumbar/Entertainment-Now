@@ -14,7 +14,7 @@ import Heading from './Heading';
 
  function SignUp() {
 
-  console.log("Signup Component");
+  // console.log("Signup Component");
   const [showPassword , setShowPassword] = useState(false);
   // below state is for maintaining the values
   const [formValues , setformValues] = useState({
@@ -50,8 +50,10 @@ const navigate = useNavigate()
       </div>
       <div className="content">
        <Heading login/>
+       <button style={{background:"red",width:"100px" , height:"30px"}} onClick={()=>navigate("/")}>Go HOME</button>
         <div className="signUp">signUp</div>
         <h2>SignUp to Add movies to List</h2>
+        
         <div className="forForm">
           <div className="form">
             <input
@@ -82,7 +84,7 @@ const navigate = useNavigate()
             <button  onClick={handleSignIn}>
               Sign Up{" "}
             </button>
-            <button onClick={()=>navigate("/")}>Go HOME</button>
+           
           </div>
         </div>
       </div>

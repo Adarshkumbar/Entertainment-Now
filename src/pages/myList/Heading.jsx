@@ -5,7 +5,7 @@ function Heading(props) {
     const navigate = useNavigate();
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="container">
         <button onClick={() => navigate(props.login ? "/login" : "/signup")}>
           {props.login ? "Login" : " Sign IN"} 
